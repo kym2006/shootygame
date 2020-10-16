@@ -32,8 +32,11 @@ function setup() {
   textAlign(CENTER, CENTER);
   text("PLAYER 1: WASD TO MOVE, R AND F TO CHANGE GUN DIRECTION", 250, 250)
   text("PLAYER 2: ARROW KEYS TO MOVE, . AND / TO CHANGE GUN DIRECTION", 250, 275)
-  text("Game made by: Kang Yiming, 2K 2020", 250,  300)
-  text("First to the score limit of 5 wins!", 250,325)
+  text("First to the score limit of 5 wins!", 250,300)
+  text("Game made by: Kang Yiming, 2K 2020", 250,  325)
+  text("Credits: Bryan Wu(Usage of Player and Bullet class", 250, 350)
+  
+  
 }
 
 frames = 0
