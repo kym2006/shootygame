@@ -16,10 +16,10 @@ function mouseClicked() {
       }
       player1.g = 0
       player2.g = 0
-      this.x = 50
-      this.y = 200
-      this.x = 350
-      this.y = 200
+      player1.x = 50
+      player1.y = 200
+      player2.x = 350
+      player2.y = 200
     }
   }
 
@@ -27,10 +27,11 @@ function mouseClicked() {
 function setup() {
   createCanvas(500, 500);
   rectMode(CENTER)
-  player1=new Player(50,200, 87, 68, 83, 65, 'gold', 82, 70) // WASD keys player
+  player1=new Player(50,200, 87, 68, 83, 65, 'gold', 86, 66) // WASD keys player
   player2=new Player(350,200,UP_ARROW, RIGHT_ARROW, DOWN_ARROW, LEFT_ARROW, 'purple', 190, 191)
   textAlign(CENTER, CENTER);
-  text("PLAYER 1: WASD TO MOVE, R AND F TO CHANGE GUN DIRECTION", 250, 250)
+  textSize(14)
+  text("PLAYER 1: WASD TO MOVE, V AND B TO CHANGE GUN DIRECTION", 250, 250)
   text("PLAYER 2: ARROW KEYS TO MOVE, . AND / TO CHANGE GUN DIRECTION", 250, 275)
   text("First to the score limit of 5 wins!", 250,300)
   text("Game made by: Kang Yiming, 2K 2020", 250,  325)
@@ -92,10 +93,10 @@ function draw() {
 
 
 function keyPressed() {
-  if (keyCode === 82) {
+  if (keyCode === 86) {
     player1.g+=1
   } 
-  if (keyCode === 70) {
+  if (keyCode === 66) {
     player1.g-=1
   }
   if (keyCode == 191) {
