@@ -35,7 +35,7 @@ function setup() {
   text("PLAYER 2: ARROW KEYS TO MOVE, . AND / TO CHANGE GUN DIRECTION", 250, 275)
   text("First to the score limit of 5 wins!", 250,300)
   text("Game made by: Kang Yiming, 2K 2020", 250,  325)
-  text("Credits: Bryan Wu(Usage of Player and Bullet class", 250, 350)
+  text("Credits: Bryan Wu(Usage of Player and Bullet class)", 250, 350)
   
   
 }
