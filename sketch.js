@@ -4,7 +4,10 @@ var PLAYER_SPEED = 0.3 //player speed
 var LIMIT = 5//which score to win
 bullets = []
 var stop = 0
+var single = false 
+button = 0 
 function mouseClicked() {
+  button.remove()
   if(started==false)started=true;
   else{
     if(stop) {
@@ -36,7 +39,9 @@ function setup() {
   text("First to the score limit of 5 wins!", 250,300)
   text("Game made by: Kang Yiming, 2K 2020", 250,  325)
   text("Credits: Bryan Wu(Usage of Player and Bullet class)", 250, 350)
-  
+  button = createButton("Single player")
+  button.position(200,400)
+  button.mousePressed(()=> (single=1))
   
 }
 
@@ -53,7 +58,9 @@ function HUD() {
 
 function draw() {
   if(!started || stop)return
-  
+  if(single){
+    player2.bot = 1
+  }
   background("DarkTurquoise");  
   player1.update()
   player2.update()
@@ -93,22 +100,22 @@ function draw() {
 
 
 function keyPressed() {
-  if (keyCode === 86) {
+  if (keyCode === player1.gleft) {
     player1.g+=1
   } 
-  if (keyCode === 66) {
+  if (keyCode === player1.gright) {
     player1.g-=1
   }
-  if (keyCode == 191) {
+  
+  if (keyCode == player2.gleft) {
     player2.g-=1
   } 
-  if (keyCode == 190) {
+  if (keyCode == player2.gright) {
     player2.g+=1
   }
+  
+  
   if (keyCode == 32) {
      mouseClicked()
   }
 }
-
-//Click on the canvas, and type "A" to increase the donut size
-//and type "B" to decrease the donut size
