@@ -42,7 +42,7 @@ class Player {
       this.g%=8;
       this.g+=8;
       this.g%=8;
-      var bullet = new Bullet(this.x+gunpos[this.g][0], this.y + gunpos[this.g][1], gunpos[this.g][0], gunpos[this.g][1])
+      var bullet = new Bullet(this.x+gunpos[this.g][0], this.y + gunpos[this.g][1], gunpos[this.g][0]*5, gunpos[this.g][1]*5)
       bullets.push(bullet)
     }
   }   
