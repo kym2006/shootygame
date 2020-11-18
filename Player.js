@@ -42,7 +42,7 @@ class Player {
       this.g%=8;
       this.g+=8;
       this.g%=8;
-      var bullet = new Bullet(this.x+gunpos[this.g][0], this.y + gunpos[this.g][1], gunpos[this.g][0]*5, gunpos[this.g][1]*5)
+      var bullet = new Bullet(this.x+gunpos[this.g][0], this.y + gunpos[this.g][1], gunpos[this.g][0]*2, gunpos[this.g][1]*2)
       bullets.push(bullet)
     }
   }   
@@ -51,16 +51,16 @@ class Player {
       var r = randint(1,5)
       console.log(r)
       if (r==1) {
-        this.vely -= PLAYER_SPEED*3;
+        this.vely -= PLAYER_SPEED*5;
       }
       if (r==2) {
-        this.vely += PLAYER_SPEED*3;
+        this.vely += PLAYER_SPEED*5;
       }
       if (r==3) {
-        this.velx -= PLAYER_SPEED*3;
+        this.velx -= PLAYER_SPEED*5;
       }
       if (r==4) {
-        this.velx += PLAYER_SPEED*3;
+        this.velx += PLAYER_SPEED*5;
       } 
       if(randint(1,3) == 1) {
         this.g-=1
