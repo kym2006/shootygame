@@ -32,8 +32,8 @@ function mouseClicked() {
 function setup() {
   createCanvas(500, 500);
   rectMode(CENTER)
-  player1=new Player(50,200, 87, 68, 83, 65, 'gold', 86, 66) // WASD keys player
-  player2=new Player(350,200,UP_ARROW, RIGHT_ARROW, DOWN_ARROW, LEFT_ARROW, 'purple', 190, 191)
+  player1=new Player(50,200, 87, 68, 83, 65, 'gold', 66, 86) // WASD keys player
+  player2=new Player(350,200,UP_ARROW, RIGHT_ARROW, DOWN_ARROW, LEFT_ARROW, 'purple', 191, 190)
   textAlign(CENTER, CENTER);
   textSize(14)
   text("PLAYER 1: WASD TO MOVE, V AND B TO CHANGE GUN DIRECTION", 250, 250)
@@ -104,10 +104,10 @@ function draw() {
 
 
 function keyPressed() {
-  if (keyCode === player1.gleft) {
+  if (keyCode === player1.gright) {
     player1.g+=1
   } 
-  if (keyCode === player1.gright) {
+  if (keyCode === player1.gleft) {
     player1.g-=1
   }
   
