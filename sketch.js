@@ -6,8 +6,10 @@ bullets = []
 var stop = 0
 var single = false 
 button = 0 
+button2 = 0
 function mouseClicked() {
   button.remove()
+  button2.remove()
   if(started==false)started=true;
   else{
     if(stop) {
@@ -42,7 +44,9 @@ function setup() {
   button = createButton("Single player")
   button.position(200,400)
   button.mousePressed(()=> (single=1))
-  
+  button2 = createButton("2 Players")
+  button2.position(300,400)
+  button2.mousePressed(()=>(single=0))
 }
 
 frames = 0
