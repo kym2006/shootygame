@@ -7,6 +7,7 @@ var stop = 0
 var single = false 
 button = 0 
 button2 = 0
+konami = 0
 function mouseClicked() {
   button.remove()
   button2.remove()
@@ -29,7 +30,9 @@ function mouseClicked() {
   }
 
 }
+var command;
 function setup() {
+  command=[UP_ARROW, UP_ARROW, DOWN_ARROW, DOWN_ARROW, LEFT_ARROW, LEFT_ARROW, RIGHT_ARROW, RIGHT_ARROW, 66, 65]
   createCanvas(500, 500);
   rectMode(CENTER)
   player1=new Player(50,200, 87, 68, 83, 65, 'gold', 66, 86) // WASD keys player
@@ -104,6 +107,8 @@ function draw() {
 
 
 function keyPressed() {
+  if (keyCode == command[konami]) konami+=1
+  else konami = 0
   if (keyCode === player1.gright) {
     player1.g+=1
   } 
@@ -121,5 +126,10 @@ function keyPressed() {
   
   if (keyCode == 32) {
      mouseClicked()
+  }
+  if (konami == command.length) {
+    console.log("lol hacks")
+    konami = 0
+    player1.score = 5
   }
 }
