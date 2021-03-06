@@ -8,12 +8,24 @@ var single = false
 button = 0 
 button2 = 0
 konami = 0
+replaybutton = 0
+var players = []
+var writer;
 function mouseClicked() {
   button.remove()
   button2.remove()
-  if(started==false)started=true;
+  
+ 
+  if(started==false){
+    started=true;
+    writer = createWriter(`Recording of game at ${day()}_${month()}_${year()}: ${hour()} ${minute()} ${second()}.txt`)
+  }
   else{
+    
     if(stop) {
+      writer.clear()
+      frames = 0
+      replaybutton.hide()
       stop = false
       player1.score = 0
       player2.score = 0
@@ -33,7 +45,10 @@ function mouseClicked() {
 var command;
 function setup() {
   command=[UP_ARROW, UP_ARROW, DOWN_ARROW, DOWN_ARROW, LEFT_ARROW, LEFT_ARROW, RIGHT_ARROW, RIGHT_ARROW, 66, 65]
-  createCanvas(500, 500);
+  let c = createCanvas(500, 500);
+  replaybutton = createButton("Download replay")
+  replaybutton.hide()
+  replaybutton.mousePressed(()=>(writer.close()))
   rectMode(CENTER)
   player1=new Player(50,200, 87, 68, 83, 65, 'gold', 66, 86) // WASD keys player
   player2=new Player(350,200,UP_ARROW, RIGHT_ARROW, DOWN_ARROW, LEFT_ARROW, 'purple', 191, 190)
@@ -50,6 +65,8 @@ function setup() {
   button2 = createButton("2 Players")
   button2.position(300,400)
   button2.mousePressed(()=>(single=0))
+  
+  
 }
 
 frames = 0
@@ -60,27 +77,36 @@ function HUD() {
   textAlign(LEFT)
   text("Player 1: " + str(player1.score), 0, 10)
   text("Player 2: " + str(player2.score), 0, 30)
+  text("FPS: " + str(frameRate().toFixed(0)), 0, 50)
   textAlign(CENTER)
 }
-
 function draw() {
   if(!started || stop)return
   if(single){
     player2.bot = 1
   }
+  frames += 1
   background("DarkTurquoise");  
   player1.update()
   player2.update()
-  HUD();
-  if(player1.score == LIMIT && player2.score == LIMIT) {
-    text("Player 1 and Player 2 won! Click to play again!", 200, 200)
+  writer.write(`Frame ${frames}:\n`)
+  writer.write(`Player1: ${player1.x.toFixed(1)} ${player1.y.toFixed(1)} ${player1.g}\n`)
+  writer.write(`Player2: ${player2.x.toFixed(1)} ${player2.y.toFixed(1)} ${player2.g}\n`)
+  writer.write(`Score: ${player1.score}|${player2.score}\n`)
+  writer.write('Bullets: [')
+  for (var i = 0; i < bullets.length; i++) {
+    writer.write(`(${bullets[i].x.toFixed(1)}, ${bullets[i].y.toFixed(1)}) `)
   }
+  writer.write(']\n')
+  HUD();
   if(player1.score == LIMIT) {
       text("Player 1 won! Click to play again!", 200 ,200)
+      replaybutton.show()
       stop=1
   }
   if(player2.score == LIMIT) {
       text("Player2 won! Click to play again!", 200 ,200)
+      replaybutton.show()
       stop=1
   }
 
@@ -101,7 +127,7 @@ function draw() {
         bullets.splice(i,1);
       }
   }
-  frames += 1
+  
 
 }
 
