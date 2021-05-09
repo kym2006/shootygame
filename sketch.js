@@ -99,12 +99,12 @@ function draw() {
   }
   writer.write(']\n')
   HUD();
-  if(player1.score == LIMIT) {
+  if(player1.score >= LIMIT) {
       text("Player 1 won! Click to play again!", 200 ,200)
       replaybutton.show()
       stop=1
   }
-  if(player2.score == LIMIT) {
+  if(player2.score >= LIMIT) {
       text("Player2 won! Click to play again!", 200 ,200)
       replaybutton.show()
       stop=1
