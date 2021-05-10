@@ -9,7 +9,7 @@ class Player {
     this.y = y;
     this.up = up
     this.right = right
-    this.down = down 
+    this.down = down
     this.left = left
     this.velx = 0;
     this.vely = 0;
@@ -45,11 +45,10 @@ class Player {
       var bullet = new Bullet(this.x+gunpos[this.g][0], this.y + gunpos[this.g][1], gunpos[this.g][0]*2, gunpos[this.g][1]*2)
       bullets.push(bullet)
     }
-  }   
+  }
   move() {
     if(this.bot) {
       var r = randint(1,5)
-      console.log(r)
       if (r==1) {
         this.vely -= PLAYER_SPEED*5;
       }
@@ -61,13 +60,13 @@ class Player {
       }
       if (r==4) {
         this.velx += PLAYER_SPEED*5;
-      } 
+      }
       if(randint(1,3) == 1) {
         this.g-=1
       } else {
         this.g+=1
       }
-      
+
     } else {
       if (keyIsDown(this.up)) {
         this.vely -= PLAYER_SPEED;
@@ -82,10 +81,10 @@ class Player {
         this.velx += PLAYER_SPEED;
       }
     }
-    
-    
-    
-    
+
+
+
+
     this.velx *= 0.9;
     this.vely *= 0.9;
     this.x += this.velx;
