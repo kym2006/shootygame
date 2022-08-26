@@ -1,6 +1,6 @@
 var DIAMETER = 30; //diameter of the player
 var started = 0;
-var PLAYER_SPEED = 0.3 //player speed
+var PLAYER_SPEED = 0.5 //player speed
 var LIMIT = 5//which score to win
 bullets = []
 var stop = 0
@@ -45,13 +45,13 @@ function mouseClicked() {
 var command;
 function setup() {
   command=[UP_ARROW, UP_ARROW, DOWN_ARROW, DOWN_ARROW, LEFT_ARROW, LEFT_ARROW, RIGHT_ARROW, RIGHT_ARROW, 66, 65]
-  let c = createCanvas(500, 500);
+  let c = createCanvas(windowHeight, windowHeight);
   replaybutton = createButton("Download replay")
   replaybutton.hide()
   replaybutton.mousePressed(()=>(writer.close()))
   rectMode(CENTER)
-  player1=new Player(50,200, 87, 68, 83, 65, 'gold', 67, 88) // WASD keys player
-  player2=new Player(350,200,73, 76, 75, 74, 'purple', 221, 219)
+  player1=new Player(windowHeight/4,windowHeight/2, 87, 68, 83, 65, 'gold', 67, 88) // WASD keys player
+  player2=new Player(windowHeight*3/4,windowHeight/2,73, 76, 75, 74, 'purple', 221, 219)
   textAlign(CENTER, CENTER);
   textSize(20)
   text("UPDATE: CHANGED OUR CONTROLS!!",250, 100)
@@ -154,6 +154,7 @@ function keyPressed() {
   
   
   if (keyCode == 32) {
+     //fullscreen(true);
      mouseClicked()
   }
   if (konami == command.length) {
