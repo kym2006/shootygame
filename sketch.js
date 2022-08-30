@@ -56,7 +56,7 @@ function setup() {
   textSize(20)
   text("UPDATE: CHANGED OUR CONTROLS!!",250, 100)
   textSize(20)
-  text("PLAYER 1: W/A/S/D/X/C ", 250, 250)
+  text("PLAYER 1: W/A/S/D/C/V ", 250, 250)
   text("PLAYER 2: I/J/K/L/[/] ", 250, 275)
   text("First to the score limit of 5 wins!", 250,300)
   textSize(10)
