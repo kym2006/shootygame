@@ -50,7 +50,7 @@ function setup() {
   replaybutton.hide()
   replaybutton.mousePressed(()=>(writer.close()))
   rectMode(CENTER)
-  player1=new Player(windowHeight/4,windowHeight/2, 87, 68, 83, 65, 'gold', 67, 88) // WASD keys player
+  player1=new Player(windowHeight/4,windowHeight/2, 87, 68, 83, 65, 'gold', 86, 67) // WASD keys player
   player2=new Player(windowHeight*3/4,windowHeight/2,73, 76, 75, 74, 'purple', 221, 219)
   textAlign(CENTER, CENTER);
   textSize(20)
