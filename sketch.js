@@ -80,7 +80,6 @@ function HUD() {
   textAlign(LEFT)
   text("Player 1: " + str(player1.score), 0, 10)
   text("Player 2: " + str(player2.score), 0, 30)
-  text("FPS: " + str(frameRate().toFixed(0)), 0, 50)
   textAlign(CENTER)
 }
 function draw() {
@@ -136,19 +135,17 @@ function draw() {
 
 
 function keyPressed() {
-  if (keyCode == command[konami]) konami+=1
-  else konami = 0
   if (keyCode === player1.gright) {
     player1.g+=1
   } 
-  if (keyCode === player1.gleft) {
+  else if (keyCode === player1.gleft) {
     player1.g-=1
   }
   
   if (keyCode == player2.gleft) {
     player2.g-=1
   } 
-  if (keyCode == player2.gright) {
+  else if (keyCode == player2.gright) {
     player2.g+=1
   }
   
@@ -156,10 +153,5 @@ function keyPressed() {
   if (keyCode == 32) {
      //fullscreen(true);
      mouseClicked()
-  }
-  if (konami == command.length) {
-    console.log("lol hacks")
-    konami = 0
-    player1.score = 5
   }
 }
