@@ -4,7 +4,7 @@ function randint(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 class Player {
-  constructor(x,y, up, right, down, left, color, gleft, gright) {
+  constructor(x,y, up, right, down, left, color, gleft, gright, boost) {
     this.x = x;
     this.y = y;
     this.up = up
@@ -16,9 +16,11 @@ class Player {
     this.color = color
     this.gleft = gleft
     this.gright = gright
+    this.boost=boost
     this.g = 0
     this.score = 0
     this.bot = 0
+    this.boostcooldown=0
   }
   draw() {
     strokeWeight(2);
@@ -47,6 +49,7 @@ class Player {
     }
   }
   move() {
+    this.boostcooldown=max(this.boostcooldown-1,0)
     if(this.bot) {
       var r = randint(1,5)
       if (r==1) {
@@ -80,6 +83,14 @@ class Player {
       if (keyIsDown(this.right)) {
         this.velx += PLAYER_SPEED;
       }
+      if (keyIsDown(this.boost)) {
+        if(this.boostcooldown==0) {
+          this.velx*=2.5;
+          this.vely*=2.5;
+          this.boostcooldown=20
+        }
+        
+      }
     }
 
 
@@ -98,5 +109,6 @@ class Player {
     this.draw();
     this.move();
     this.shoot();
+    
   }
 }

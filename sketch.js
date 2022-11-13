@@ -50,18 +50,17 @@ function setup() {
   replaybutton.hide()
   replaybutton.mousePressed(()=>(writer.close()))
   rectMode(CENTER)
-  player1=new Player(windowHeight/4,windowHeight/2, 87, 68, 83, 65, 'gold', 86, 67) // WASD keys player
-  player2=new Player(windowHeight*3/4,windowHeight/2,73, 76, 75, 74, 'purple', 221, 219)
+  player1=new Player(windowHeight/4,windowHeight/2, 87, 68, 83, 65, 'gold', 86, 67, 66) // WASD keys player
+  player2=new Player(windowHeight*3/4,windowHeight/2,73, 76, 75, 74, 'purple', 221, 219, 220)
   textAlign(CENTER, CENTER);
   textSize(20)
-  text("UPDATE: CHANGED OUR CONTROLS!!",250, 100)
+  text("UPDATE: PRESS B OR | TO BOOST!",250, 100)
   textSize(20)
-  text("PLAYER 1: W/A/S/D/C/V ", 250, 250)
-  text("PLAYER 2: I/J/K/L/[/] ", 250, 275)
+  text("PLAYER 1: W/A/S/D/C/V/B ", 250, 250)
+  text("PLAYER 2: I/J/K/L/[/]/| ", 250, 275)
   text("First to the score limit of 5 wins!", 250,300)
   textSize(10)
   text("Game made by: Kang Yiming, 2K 2020", 250,  325)
-  text("Credits: Bryan Wu(Usage of Player and Bullet class)", 250, 350)
   button = createButton("Single player")
   button.position(200,400)
   button.mousePressed(()=> (single=1))
